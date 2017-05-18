@@ -18,10 +18,10 @@ from amathon.amathon import Amathon
 api = Amathon(AWSAccessKeyId=api_key.access_key, ASWSecretAccessKey=api_key.secret_key, AssociateTag=api_key.aa_id, API_URL="http://webservices.amazon.com/onca/xml")
 
 # lookup the Godel-Escher-Bach-Eternal-Golden ISBN: 0465026567
-print((api.ItemLookup(ItemId="0465026567", ResponseGroup="ItemAttributes").decode("utf-8")))
+print(api.ItemLookup(ItemId="0465026567", ResponseGroup="ItemAttributes").decode("utf-8"))
 
 # serath the Godel-Escher-Bach-Eternal-Golden
-print((api.ItemSearch(SearchIndex="All", Keywords="Godel,Escher,Bach,Eternal,Golden").decode("utf-8")))
+print(api.ItemSearch(SearchIndex="All", Keywords="Godel,Escher,Bach,Eternal,Golden").decode("utf-8"))
 
 # create cart and add the Godel-Escher-Bach-Eternal-Golden
 cart = api.CartCreate(AmathonParameterList=[("Item.1.ASIN","0465026567"), ("Item.1.Quantity",1)]).decode("utf-8")
